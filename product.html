@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Item 1 - Product Page</h1>
+
+  <div class="product-detail">
+    <img src="assets/images/item1.jpg" alt="Item 1">
+    <div class="details">
+      <h2>Item 1</h2>
+      <p>This is a detailed description of the product. You can write about quality, material, and features.</p>
+      <h3>Price: ₹999</h3>
+    </div>
+  </div>
+
+  <div class="order-form">
+    <h2>Place Your Order</h2>
+    <form onsubmit="event.preventDefault(); alert('Order placed successfully!');">
+      <label>Name: <input type="text" required></label><br><br>
+      <label>Mobile: <input type="tel" required></label><br><br>
+      <label>Address:<br><textarea rows="4" required></textarea></label><br><br>
+      <label>Quantity: <input id="order-qty" type="number" value="1" min="1" required></label><br><br>
+      <label>Additional Items: <input type="text" placeholder="Optional"></label><br><br>
+      <button type="submit">Place Order</button>
+    </form>
+
+    <br>
+    <button onclick="addToCart('Item 1', parseInt(document.getElementById('order-qty').value), 999)">
+      Add to Cart
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

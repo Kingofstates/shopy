@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - Shopy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Your Cart</h1>
+
+  <div class="cart-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Items will be dynamically added here -->
+      </tbody>
+    </table>
+
+    <div class="checkout">
+      <h3>Total: ₹<span id="grand-total">0</span></h3>
+      <button onclick="window.location='product.html'">Continue Shopping</button>
+      <button onclick="alert('Order placed!')">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

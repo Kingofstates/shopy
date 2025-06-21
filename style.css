@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 20px;
+  margin: 0;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-item {
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.product-item:hover {
+  transform: scale(1.01);
+}
+
+.product-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.product-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  background: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  margin-top: 40px;
+}
+
+footer a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+.product-detail {
+  display: flex;
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 20px;
+}
+
+.product-detail img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.order-form {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.order-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-form input, .order-form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.order-form button {
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.order-form button:hover {
+  background: #555;
+}
+.cart-container {
+  margin: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.checkout button:hover {
+  background: #555;
+}
