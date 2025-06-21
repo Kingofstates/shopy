@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Place Your Order</h1>
+
+  <div class="container">
+    <form id="orderForm" onsubmit="sendWhatsAppMessage(event)">
+      <label for="name">Name* <input type="text" id="name" required></label><br><br>
+      <label for="mobile">Mobile Number* <input type="tel" id="mobile" required></label><br><br>
+      <label for="pincode">Pincode* <input type="text" id="pincode" required></label><br><br>
+      <label for="city">City* <input type="text" id="city" required></label><br><br>
+      <label for="area">Area* <input type="text" id="area" required></label><br><br>
+      <label for="landmark">Landmark <input type="text" id="landmark"></label><br><br>
+
+      <div class="order-summary">
+        <div class="item-preview">
+          <img id="item-image" src="assets/images/item1.jpg" alt="Selected Item">
+        </div>
+        <div class="item-info">
+          <h3 id="item-name">Item 1</h3>
+          <label for="quantity">Quantity:
+            <button type="button" onclick="updateQuantity(-1)">−</button>
+            <input type="number" id="quantity" value="1" min="1">
+            <button type="button" onclick="updateQuantity(1)">+</button>
+          </label>
+        </div>
+      </div>
+
+      <br>
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <footer>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemName = urlParams.get('item') || 'Selected Item';
+    document.getElementById('item-name').textContent = itemName;
+
+    function updateQuantity(change) {
+      const qtyInput = document.getElementById('quantity');
+      let newQty = parseInt(qtyInput.value) + change;
+      if (newQty < 1) newQty = 1;
+      qtyInput.value = newQty;
+    }
+
+    function sendWhatsAppMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      const pincode = document.getElementById('pincode').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const area = document.getElementById('area').value.trim();
+      const landmark = document.getElementById('landmark').value.trim();
+      const quantity = document.getElementById('quantity').value.trim();
+
+      if (!name || !mobile || !pincode || !city || !area) {
+        alert("Please fill all mandatory fields marked with *");
+        return;
+      }
+
+      const message = `My name is ${name}, Mobile number is ${mobile}, Address: ${area}, ${landmark ? landmark + ', ' : ''}${city} - ${pincode}. I need ${itemName}, Quantity: ${quantity}`;
+
+      const encodedMsg = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/1234567892?text=${encodedMsg}`;
+
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>

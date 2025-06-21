@@ -2,52 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <h1>Item 1 - Product Page</h1>
 
-  <!-- Image Carousel -->
-  <div class="carousel-container">
-    <div class="arrow" onclick="prevImage()">&#8592;</div>
-    <img id="product-image" class="carousel-img" src="assets/images/item1.jpg" alt="Item 1">
-    <div class="arrow" onclick="nextImage()">&#8594;</div>
-  </div>
+  <div class="container">
+    <!-- Image Carousel -->
+    <div class="carousel-container">
+      <div class="arrow" onclick="prevImage()">←</div>
+      <img id="product-image" class="carousel-img" src="assets/images/item1.jpg" alt="Item 1">
+      <div class="arrow" onclick="nextImage()">→</div>
+    </div>
 
-  <!-- Thumbnails -->
-  <div class="thumbnails" id="thumbnails"></div>
+    <!-- Thumbnails -->
+    <div class="thumbnails" id="thumbnails"></div>
 
-  <div class="product-detail">
-    <div class="details">
-      <h2>Item 1</h2>
-      <h3>Price: ₹999</h3>
-      <p>This is a detailed description of the product. You can write about quality, material, and features.</p>
+    <!-- Product Details -->
+    <div class="product-detail">
+      <div class="details">
+        <h2>Item 1</h2>
+        <h3>Price: ₹999</h3>
+        <p>This is a detailed description of the product. You can write about quality, material, and features.</p>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="order-form">
+      <button onclick="addToCart('Item 1', 1, 999)">Add to Cart</button>
+      <button onclick="window.location.href='placeorder.html?item=Item%201'">Place Order</button>
+    </div>
+
+    <!-- Related Products -->
+    <h2 style="padding: 0 20px">Related Products</h2>
+    <div class="related-grid">
+      <div class="related-item" onclick="window.location.href='product1.html'">
+        <img src="assets/images/item2.png" alt="Item 2">
+        <h3>Item 2</h3>
+        <p>Quick view of item 2</p>
+      </div>
+      <div class="related-item" onclick="window.location.href='product2.html'">
+        <img src="assets/images/item3.png" alt="Item 3">
+        <h3>Item 3</h3>
+        <p>Quick view of item 3</p>
+      </div>
+      <div class="related-item" onclick="window.location.href='product3.html'">
+        <img src="assets/images/item4.png" alt="Item 4">
+        <h3>Item 4</h3>
+        <p>Quick view of item 4</p>
+      </div>
+      <div class="related-item" onclick="window.location.href='product4.html'">
+        <img src="assets/images/item5.png" alt="Item 5">
+        <h3>Item 5</h3>
+        <p>Quick view of item 5</p>
+      </div>
     </div>
   </div>
 
-  <div class="order-form">
-    <h2>Place Your Order</h2>
-    <form onsubmit="event.preventDefault(); alert('Order placed successfully!');">
-      <label>Name: <input type="text" required></label><br><br>
-      <label>Mobile: <input type="tel" required></label><br><br>
-      <label>Address:<br><textarea rows="4" required></textarea></label><br><br>
-      <label>Quantity: <input id="order-qty" type="number" value="1" min="1" required></label><br><br>
-      <label>Additional Items: <input type="text" placeholder="Optional"></label><br><br>
-      <button type="submit">Place Order</button>
-    </form>
-
-    <br>
-    <button onclick="addToCart('Item 1', parseInt(document.getElementById('order-qty').value), 999)">
-      Add to Cart
-    </button>
-  </div>
-
-  <!-- Footer -->
+  <!-- Footer Always at Bottom -->
   <footer>
     <a href="https://instagram.com" target="_blank">Instagram</a>
     <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
     <a href="https://linkedin.com" target="_blank">LinkedIn</a>
   </footer>
 
@@ -81,7 +99,6 @@
       showImage(currentIndex);
     }
 
-    // Setup thumbnails
     images.forEach((src, index) => {
       const thumb = document.createElement("img");
       thumb.src = src;
@@ -90,7 +107,6 @@
       thumbnailsContainer.appendChild(thumb);
     });
 
-    // Auto-slide every 5 seconds
     setInterval(nextImage, 5000);
   </script>
 </body>
