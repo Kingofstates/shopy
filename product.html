@@ -9,8 +9,17 @@
 
   <h1>Item 1 - Product Page</h1>
 
+  <!-- Image Carousel -->
+  <div class="carousel-container">
+    <div class="arrow" onclick="prevImage()">&#8592;</div>
+    <img id="product-image" class="carousel-img" src="assets/images/item1.jpg" alt="Item 1">
+    <div class="arrow" onclick="nextImage()">&#8594;</div>
+  </div>
+
+  <!-- Thumbnails -->
+  <div class="thumbnails" id="thumbnails"></div>
+
   <div class="product-detail">
-    <img src="assets/images/item1.jpg" alt="Item 1">
     <div class="details">
       <h2>Item 1</h2>
       <p>This is a detailed description of the product. You can write about quality, material, and features.</p>
@@ -43,5 +52,46 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    const images = [
+      "assets/images/item1.jpg",
+      "assets/images/item2.png",
+      "assets/images/item1_3.jpg"
+    ];
+
+    let currentIndex = 0;
+    const mainImage = document.getElementById("product-image");
+    const thumbnailsContainer = document.getElementById("thumbnails");
+
+    function showImage(index) {
+      currentIndex = index;
+      mainImage.src = images[index];
+      document.querySelectorAll(".thumbnails img").forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === index);
+      });
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    // Setup thumbnails
+    images.forEach((src, index) => {
+      const thumb = document.createElement("img");
+      thumb.src = src;
+      thumb.onclick = () => showImage(index);
+      if (index === 0) thumb.classList.add("active");
+      thumbnailsContainer.appendChild(thumb);
+    });
+
+    // Auto-slide every 5 seconds
+    setInterval(nextImage, 5000);
+  </script>
 </body>
 </html>

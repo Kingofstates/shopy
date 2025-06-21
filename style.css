@@ -158,3 +158,58 @@ th, td {
 .checkout button:hover {
   background: #555;
 }
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 20px;
+  position: relative;
+}
+
+.carousel-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-img:hover {
+  transform: scale(1.1);
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 40px;
+  user-select: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.arrow:hover {
+  color: #555;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.thumbnails img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.thumbnails img.active,
+.thumbnails img:hover {
+  opacity: 1;
+  border: 2px solid #333;
+}
